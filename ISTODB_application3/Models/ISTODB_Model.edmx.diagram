@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="682a56b5c2da4f5c8b3968be1e8626c0" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.CENY_TOCHKI" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.NOMENKLTR_TCHK" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.POKUPATELI" Width="1.5" PointX="3.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PRODAVCY" Width="1.5" PointX="3.75" PointY="9.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PRODAZHI" Width="1.5" PointX="6" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SPISOK_TOVAROV" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TORGOVAJA_TOCHKA" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.UNIVERMAG" Width="1.5" PointX="8.25" PointY="4.375" IsExpanded="true" />
+        <AssociationConnector Association="Model.SYS_C007264" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007265" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007260" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007261" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007248" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007247" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007249" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007252" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SYS_C007251" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

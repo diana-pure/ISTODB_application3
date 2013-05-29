@@ -1,0 +1,34 @@
+﻿@model ISTODB_application3.Models.UNIVERMAG
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>UNIVERMAG</legend>
+    <!--<div class="display-label">IMJA_TORG_TOCHKI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TORGOVAJA_TOCHKA.IMJA_TORG_TOCHKI)
+    </div>-->
+       
+    <div class="display-label">RAZMER_TORG_TCHK</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RAZMER_TORG_TCHK)
+    </div>
+
+    <div class="display-label">CHISLO_PRILAVKOV</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CHISLO_PRILAVKOV)
+    </div>
+
+    <div class="display-label">PRODAZHI1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRODAZHI1.ID)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

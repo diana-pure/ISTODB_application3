@@ -1,0 +1,41 @@
+﻿@model ISTODB_application3.Models.TORGOVAJA_TOCHKA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>TORGOVAJA_TOCHKA</legend>
+
+    <div class="display-label">IMJA_TORG_TOCHKI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMJA_TORG_TOCHKI)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+<table>
+    <tr>
+        <th>
+            TOVAR
+        </th>
+        <th>
+            KOLICHESTVO
+        </th>
+    </tr>
+    @foreach (var item in Model.NOMENKLTR_TCHK) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SPISOK_TOVAROV.TOVAR)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.KOLICHESTVO)
+            </td>
+        </tr>
+    }
+</table>

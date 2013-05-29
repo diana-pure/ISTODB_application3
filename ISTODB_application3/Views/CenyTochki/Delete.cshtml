@@ -1,0 +1,33 @@
+﻿@model ISTODB_application3.Models.CENY_TOCHKI
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>CENY_TOCHKI</legend>
+
+    <div class="display-label">TORGOVAJA_TOCHKA1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TORGOVAJA_TOCHKA1.IMJA_TORG_TOCHKI)
+    </div>
+
+    <div class="display-label">SPISOK_TOVAROV</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SPISOK_TOVAROV.TOVAR)
+    </div>
+
+    <div class="display-label">CENA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CENA)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

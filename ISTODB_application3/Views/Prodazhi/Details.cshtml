@@ -1,0 +1,40 @@
+﻿@model ISTODB_application3.Models.PRODAZHI
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PRODAZHI</legend>
+
+    <div class="display-label">PRODAVCY</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.PRODAVCY.IMJA_PRODAVCA)
+    </div>
+
+    <div class="display-label">POKUPATELI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.POKUPATELI.IMJA_POKUPATELJA)
+    </div>
+
+    <div class="display-label">DATA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DATA)
+    </div>
+
+    <div class="display-label">SPISOK_TOVAROV</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SPISOK_TOVAROV.TOVAR)
+    </div>
+
+    <div class="display-label">KOLICHESTVO</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.KOLICHESTVO)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

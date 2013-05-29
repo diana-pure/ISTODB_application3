@@ -1,0 +1,28 @@
+﻿@model ISTODB_application3.Models.POKUPATELI
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>POKUPATELI</legend>
+
+    <div class="display-label">IMJA_POKUPATELJA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMJA_POKUPATELJA)
+    </div>
+
+    <div class="display-label">HARAKTERISTIKI</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HARAKTERISTIKI)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

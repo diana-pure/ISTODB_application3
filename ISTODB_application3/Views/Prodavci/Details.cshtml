@@ -1,0 +1,25 @@
+﻿@model ISTODB_application3.Models.PRODAVCY
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>PRODAVCY</legend>
+
+    <div class="display-label">IMJA_PRODAVCA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IMJA_PRODAVCA)
+    </div>
+
+    <div class="display-label">ZARPLATA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ZARPLATA)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

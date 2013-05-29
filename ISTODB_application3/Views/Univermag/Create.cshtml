@@ -1,0 +1,49 @@
+﻿@model ISTODB_application3.Models.UNIVERMAG
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+<script src="@Url.Content("~/Scripts/jquery.validate.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")" type="text/javascript"></script>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+    <fieldset>
+        <legend>UNIVERMAG</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.RAZMER_TORG_TCHK)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.RAZMER_TORG_TCHK)
+            @Html.ValidationMessageFor(model => model.RAZMER_TORG_TCHK)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.CHISLO_PRILAVKOV)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.CHISLO_PRILAVKOV)
+            @Html.ValidationMessageFor(model => model.CHISLO_PRILAVKOV)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.PRODAZHI, "PRODAZHI1")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("PRODAZHI", String.Empty)
+            @Html.ValidationMessageFor(model => model.PRODAZHI)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

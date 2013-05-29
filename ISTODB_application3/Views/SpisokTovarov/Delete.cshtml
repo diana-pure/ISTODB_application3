@@ -1,0 +1,23 @@
+﻿@model ISTODB_application3.Models.SPISOK_TOVAROV
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>SPISOK_TOVAROV</legend>
+
+    <div class="display-label">TOVAR</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TOVAR)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

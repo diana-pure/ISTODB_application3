@@ -1,0 +1,30 @@
+﻿@model ISTODB_application3.Models.CENY_TOCHKI
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>CENY_TOCHKI</legend>
+
+    <div class="display-label">TORGOVAJA_TOCHKA1</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TORGOVAJA_TOCHKA1.IMJA_TORG_TOCHKI)
+    </div>
+
+    <div class="display-label">SPISOK_TOVAROV</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SPISOK_TOVAROV.TOVAR)
+    </div>
+
+    <div class="display-label">CENA</div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CENA)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

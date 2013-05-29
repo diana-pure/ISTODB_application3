@@ -1,0 +1,579 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Alias="Self" Provider="Oracle.DataAccess.Client" ProviderManifestToken="11.2" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="CENY_TOCHKI" EntityType="Model.Store.CENY_TOCHKI" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <EntitySet Name="NOMENKLTR_TCHK" EntityType="Model.Store.NOMENKLTR_TCHK" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <EntitySet Name="POKUPATELI" EntityType="Model.Store.POKUPATELI" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <EntitySet Name="PRODAVCY" EntityType="Model.Store.PRODAVCY" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <EntitySet Name="PRODAZHI" EntityType="Model.Store.PRODAZHI" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <EntitySet Name="SPISOK_TOVAROV" EntityType="Model.Store.SPISOK_TOVAROV" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <EntitySet Name="TORGOVAJA_TOCHKA" EntityType="Model.Store.TORGOVAJA_TOCHKA" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <EntitySet Name="UNIVERMAG" EntityType="Model.Store.UNIVERMAG" store:Type="Tables" Schema="ISTODBUSERNAME" />
+          <AssociationSet Name="SYS_C007247" Association="Model.Store.SYS_C007247">
+            <End Role="PRODAVCY" EntitySet="PRODAVCY" />
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007248" Association="Model.Store.SYS_C007248">
+            <End Role="POKUPATELI" EntitySet="POKUPATELI" />
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007249" Association="Model.Store.SYS_C007249">
+            <End Role="SPISOK_TOVAROV" EntitySet="SPISOK_TOVAROV" />
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007251" Association="Model.Store.SYS_C007251">
+            <End Role="TORGOVAJA_TOCHKA" EntitySet="TORGOVAJA_TOCHKA" />
+            <End Role="UNIVERMAG" EntitySet="UNIVERMAG" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007252" Association="Model.Store.SYS_C007252">
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+            <End Role="UNIVERMAG" EntitySet="UNIVERMAG" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007260" Association="Model.Store.SYS_C007260">
+            <End Role="TORGOVAJA_TOCHKA" EntitySet="TORGOVAJA_TOCHKA" />
+            <End Role="NOMENKLTR_TCHK" EntitySet="NOMENKLTR_TCHK" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007261" Association="Model.Store.SYS_C007261">
+            <End Role="SPISOK_TOVAROV" EntitySet="SPISOK_TOVAROV" />
+            <End Role="NOMENKLTR_TCHK" EntitySet="NOMENKLTR_TCHK" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007264" Association="Model.Store.SYS_C007264">
+            <End Role="TORGOVAJA_TOCHKA" EntitySet="TORGOVAJA_TOCHKA" />
+            <End Role="CENY_TOCHKI" EntitySet="CENY_TOCHKI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007265" Association="Model.Store.SYS_C007265">
+            <End Role="SPISOK_TOVAROV" EntitySet="SPISOK_TOVAROV" />
+            <End Role="CENY_TOCHKI" EntitySet="CENY_TOCHKI" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CENY_TOCHKI">
+          <Key>
+            <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            <PropertyRef Name="TOVAR" />
+          </Key>
+          <Property Name="TORGOVAJA_TOCHKA" Type="number" Nullable="false" Precision="11" />
+          <Property Name="TOVAR" Type="number" Nullable="false" Precision="11" />
+          <Property Name="CENA" Type="number" Precision="11" />
+        </EntityType>
+        <EntityType Name="NOMENKLTR_TCHK">
+          <Key>
+            <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            <PropertyRef Name="TOVAR" />
+          </Key>
+          <Property Name="TORGOVAJA_TOCHKA" Type="number" Nullable="false" Precision="11" />
+          <Property Name="TOVAR" Type="number" Nullable="false" Precision="11" />
+          <Property Name="KOLICHESTVO" Type="number" Precision="11" />
+        </EntityType>
+        <EntityType Name="POKUPATELI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="11" />
+          <Property Name="IMJA_POKUPATELJA" Type="varchar2" MaxLength="20" />
+          <Property Name="HARAKTERISTIKI" Type="varchar2" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="PRODAVCY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="11" />
+          <Property Name="IMJA_PRODAVCA" Type="varchar2" MaxLength="30" />
+          <Property Name="ZARPLATA" Type="number" Precision="11" />
+        </EntityType>
+        <EntityType Name="PRODAZHI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="11" />
+          <Property Name="PRODAVEC" Type="number" Precision="11" />
+          <Property Name="POKUPATEL" Type="number" Precision="11" />
+          <Property Name="DATA" Type="date" />
+          <Property Name="TOVAR" Type="number" Precision="11" />
+          <Property Name="KOLICHESTVO" Type="number" Precision="6" />
+        </EntityType>
+        <EntityType Name="SPISOK_TOVAROV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="11" />
+          <Property Name="TOVAR" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="TORGOVAJA_TOCHKA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="11" />
+          <Property Name="IMJA_TORG_TOCHKI" Type="varchar2" Nullable="false" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="UNIVERMAG">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="PRODAZHI" />
+          </Key>
+          <Property Name="ID" Type="number" Nullable="false" Precision="11" />
+          <Property Name="RAZMER_TORG_TCHK" Type="number" Precision="11" />
+          <Property Name="CHISLO_PRILAVKOV" Type="number" Precision="6" />
+          <Property Name="PRODAZHI" Type="number" Nullable="false" Precision="11" />
+        </EntityType>
+        <Association Name="SYS_C007247">
+          <End Role="PRODAVCY" Type="Model.Store.PRODAVCY" Multiplicity="0..1" />
+          <End Role="PRODAZHI" Type="Model.Store.PRODAZHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODAVCY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODAZHI">
+              <PropertyRef Name="PRODAVEC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007248">
+          <End Role="POKUPATELI" Type="Model.Store.POKUPATELI" Multiplicity="0..1" />
+          <End Role="PRODAZHI" Type="Model.Store.PRODAZHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POKUPATELI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODAZHI">
+              <PropertyRef Name="POKUPATEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007249">
+          <End Role="SPISOK_TOVAROV" Type="Model.Store.SPISOK_TOVAROV" Multiplicity="0..1" />
+          <End Role="PRODAZHI" Type="Model.Store.PRODAZHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPISOK_TOVAROV">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODAZHI">
+              <PropertyRef Name="TOVAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007251">
+          <End Role="TORGOVAJA_TOCHKA" Type="Model.Store.TORGOVAJA_TOCHKA" Multiplicity="1" />
+          <End Role="UNIVERMAG" Type="Model.Store.UNIVERMAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORGOVAJA_TOCHKA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UNIVERMAG">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007252">
+          <End Role="PRODAZHI" Type="Model.Store.PRODAZHI" Multiplicity="1" />
+          <End Role="UNIVERMAG" Type="Model.Store.UNIVERMAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODAZHI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UNIVERMAG">
+              <PropertyRef Name="PRODAZHI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007260">
+          <End Role="TORGOVAJA_TOCHKA" Type="Model.Store.TORGOVAJA_TOCHKA" Multiplicity="1" />
+          <End Role="NOMENKLTR_TCHK" Type="Model.Store.NOMENKLTR_TCHK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORGOVAJA_TOCHKA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NOMENKLTR_TCHK">
+              <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007261">
+          <End Role="SPISOK_TOVAROV" Type="Model.Store.SPISOK_TOVAROV" Multiplicity="1" />
+          <End Role="NOMENKLTR_TCHK" Type="Model.Store.NOMENKLTR_TCHK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPISOK_TOVAROV">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NOMENKLTR_TCHK">
+              <PropertyRef Name="TOVAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007264">
+          <End Role="TORGOVAJA_TOCHKA" Type="Model.Store.TORGOVAJA_TOCHKA" Multiplicity="1" />
+          <End Role="CENY_TOCHKI" Type="Model.Store.CENY_TOCHKI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORGOVAJA_TOCHKA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CENY_TOCHKI">
+              <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007265">
+          <End Role="SPISOK_TOVAROV" Type="Model.Store.SPISOK_TOVAROV" Multiplicity="1" />
+          <End Role="CENY_TOCHKI" Type="Model.Store.CENY_TOCHKI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPISOK_TOVAROV">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CENY_TOCHKI">
+              <PropertyRef Name="TOVAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ISTODB_connection" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="CENY_TOCHKI" EntityType="Model.CENY_TOCHKI" />
+          <EntitySet Name="NOMENKLTR_TCHK" EntityType="Model.NOMENKLTR_TCHK" />
+          <EntitySet Name="POKUPATELI" EntityType="Model.POKUPATELI" />
+          <EntitySet Name="PRODAVCY" EntityType="Model.PRODAVCY" />
+          <EntitySet Name="PRODAZHI" EntityType="Model.PRODAZHI" />
+          <EntitySet Name="SPISOK_TOVAROV" EntityType="Model.SPISOK_TOVAROV" />
+          <EntitySet Name="TORGOVAJA_TOCHKA" EntityType="Model.TORGOVAJA_TOCHKA" />
+          <EntitySet Name="UNIVERMAG" EntityType="Model.UNIVERMAG" />
+          <AssociationSet Name="SYS_C007264" Association="Model.SYS_C007264">
+            <End Role="TORGOVAJA_TOCHKA" EntitySet="TORGOVAJA_TOCHKA" />
+            <End Role="CENY_TOCHKI" EntitySet="CENY_TOCHKI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007265" Association="Model.SYS_C007265">
+            <End Role="SPISOK_TOVAROV" EntitySet="SPISOK_TOVAROV" />
+            <End Role="CENY_TOCHKI" EntitySet="CENY_TOCHKI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007260" Association="Model.SYS_C007260">
+            <End Role="TORGOVAJA_TOCHKA" EntitySet="TORGOVAJA_TOCHKA" />
+            <End Role="NOMENKLTR_TCHK" EntitySet="NOMENKLTR_TCHK" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007261" Association="Model.SYS_C007261">
+            <End Role="SPISOK_TOVAROV" EntitySet="SPISOK_TOVAROV" />
+            <End Role="NOMENKLTR_TCHK" EntitySet="NOMENKLTR_TCHK" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007248" Association="Model.SYS_C007248">
+            <End Role="POKUPATELI" EntitySet="POKUPATELI" />
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007247" Association="Model.SYS_C007247">
+            <End Role="PRODAVCY" EntitySet="PRODAVCY" />
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007249" Association="Model.SYS_C007249">
+            <End Role="SPISOK_TOVAROV" EntitySet="SPISOK_TOVAROV" />
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007252" Association="Model.SYS_C007252">
+            <End Role="PRODAZHI" EntitySet="PRODAZHI" />
+            <End Role="UNIVERMAG" EntitySet="UNIVERMAG" />
+          </AssociationSet>
+          <AssociationSet Name="SYS_C007251" Association="Model.SYS_C007251">
+            <End Role="TORGOVAJA_TOCHKA" EntitySet="TORGOVAJA_TOCHKA" />
+            <End Role="UNIVERMAG" EntitySet="UNIVERMAG" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CENY_TOCHKI">
+          <Key>
+            <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            <PropertyRef Name="TOVAR" />
+          </Key>
+          <Property Name="TORGOVAJA_TOCHKA" Type="Int64" Nullable="false" />
+          <Property Name="TOVAR" Type="Int64" Nullable="false" />
+          <Property Name="CENA" Type="Int64" />
+          <NavigationProperty Name="TORGOVAJA_TOCHKA1" Relationship="Model.SYS_C007264" FromRole="CENY_TOCHKI" ToRole="TORGOVAJA_TOCHKA" />
+          <NavigationProperty Name="SPISOK_TOVAROV" Relationship="Model.SYS_C007265" FromRole="CENY_TOCHKI" ToRole="SPISOK_TOVAROV" />
+        </EntityType>
+        <EntityType Name="NOMENKLTR_TCHK">
+          <Key>
+            <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            <PropertyRef Name="TOVAR" />
+          </Key>
+          <Property Name="TORGOVAJA_TOCHKA" Type="Int64" Nullable="false" />
+          <Property Name="TOVAR" Type="Int64" Nullable="false" />
+          <Property Name="KOLICHESTVO" Type="Int64" />
+          <NavigationProperty Name="TORGOVAJA_TOCHKA1" Relationship="Model.SYS_C007260" FromRole="NOMENKLTR_TCHK" ToRole="TORGOVAJA_TOCHKA" />
+          <NavigationProperty Name="SPISOK_TOVAROV" Relationship="Model.SYS_C007261" FromRole="NOMENKLTR_TCHK" ToRole="SPISOK_TOVAROV" />
+        </EntityType>
+        <EntityType Name="POKUPATELI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="IMJA_POKUPATELJA" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <Property Name="HARAKTERISTIKI" Type="String" MaxLength="20" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="PRODAZHI" Relationship="Model.SYS_C007248" FromRole="POKUPATELI" ToRole="PRODAZHI" />
+        </EntityType>
+        <EntityType Name="PRODAVCY">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="IMJA_PRODAVCA" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <Property Name="ZARPLATA" Type="Int64" />
+          <NavigationProperty Name="PRODAZHI" Relationship="Model.SYS_C007247" FromRole="PRODAVCY" ToRole="PRODAZHI" />
+        </EntityType>
+        <EntityType Name="PRODAZHI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="PRODAVEC" Type="Int64" />
+          <Property Name="POKUPATEL" Type="Int64" />
+          <Property Name="DATA" Type="DateTime" />
+          <Property Name="TOVAR" Type="Int64" />
+          <Property Name="KOLICHESTVO" Type="Int32" />
+          <NavigationProperty Name="POKUPATELI" Relationship="Model.SYS_C007248" FromRole="PRODAZHI" ToRole="POKUPATELI" />
+          <NavigationProperty Name="PRODAVCY" Relationship="Model.SYS_C007247" FromRole="PRODAZHI" ToRole="PRODAVCY" />
+          <NavigationProperty Name="SPISOK_TOVAROV" Relationship="Model.SYS_C007249" FromRole="PRODAZHI" ToRole="SPISOK_TOVAROV" />
+          <NavigationProperty Name="UNIVERMAG" Relationship="Model.SYS_C007252" FromRole="PRODAZHI" ToRole="UNIVERMAG" />
+        </EntityType>
+        <EntityType Name="SPISOK_TOVAROV">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="TOVAR" Type="String" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CENY_TOCHKI" Relationship="Model.SYS_C007265" FromRole="SPISOK_TOVAROV" ToRole="CENY_TOCHKI" />
+          <NavigationProperty Name="NOMENKLTR_TCHK" Relationship="Model.SYS_C007261" FromRole="SPISOK_TOVAROV" ToRole="NOMENKLTR_TCHK" />
+          <NavigationProperty Name="PRODAZHI" Relationship="Model.SYS_C007249" FromRole="SPISOK_TOVAROV" ToRole="PRODAZHI" />
+        </EntityType>
+        <EntityType Name="TORGOVAJA_TOCHKA">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="IMJA_TORG_TOCHKI" Type="String" Nullable="false" MaxLength="30" Unicode="false" FixedLength="false" />
+          <NavigationProperty Name="CENY_TOCHKI" Relationship="Model.SYS_C007264" FromRole="TORGOVAJA_TOCHKA" ToRole="CENY_TOCHKI" />
+          <NavigationProperty Name="NOMENKLTR_TCHK" Relationship="Model.SYS_C007260" FromRole="TORGOVAJA_TOCHKA" ToRole="NOMENKLTR_TCHK" />
+          <NavigationProperty Name="UNIVERMAG" Relationship="Model.SYS_C007251" FromRole="TORGOVAJA_TOCHKA" ToRole="UNIVERMAG" />
+        </EntityType>
+        <EntityType Name="UNIVERMAG">
+          <Key>
+            <PropertyRef Name="ID" />
+            <PropertyRef Name="PRODAZHI" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="RAZMER_TORG_TCHK" Type="Int64" />
+          <Property Name="CHISLO_PRILAVKOV" Type="Int32" />
+          <Property Name="PRODAZHI" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="PRODAZHI1" Relationship="Model.SYS_C007252" FromRole="UNIVERMAG" ToRole="PRODAZHI" />
+          <NavigationProperty Name="TORGOVAJA_TOCHKA" Relationship="Model.SYS_C007251" FromRole="UNIVERMAG" ToRole="TORGOVAJA_TOCHKA" />
+        </EntityType>
+        <Association Name="SYS_C007264">
+          <End Role="TORGOVAJA_TOCHKA" Type="Model.TORGOVAJA_TOCHKA" Multiplicity="1" />
+          <End Role="CENY_TOCHKI" Type="Model.CENY_TOCHKI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORGOVAJA_TOCHKA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CENY_TOCHKI">
+              <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007265">
+          <End Role="SPISOK_TOVAROV" Type="Model.SPISOK_TOVAROV" Multiplicity="1" />
+          <End Role="CENY_TOCHKI" Type="Model.CENY_TOCHKI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPISOK_TOVAROV">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CENY_TOCHKI">
+              <PropertyRef Name="TOVAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007260">
+          <End Role="TORGOVAJA_TOCHKA" Type="Model.TORGOVAJA_TOCHKA" Multiplicity="1" />
+          <End Role="NOMENKLTR_TCHK" Type="Model.NOMENKLTR_TCHK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORGOVAJA_TOCHKA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NOMENKLTR_TCHK">
+              <PropertyRef Name="TORGOVAJA_TOCHKA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007261">
+          <End Role="SPISOK_TOVAROV" Type="Model.SPISOK_TOVAROV" Multiplicity="1" />
+          <End Role="NOMENKLTR_TCHK" Type="Model.NOMENKLTR_TCHK" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPISOK_TOVAROV">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="NOMENKLTR_TCHK">
+              <PropertyRef Name="TOVAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007248">
+          <End Role="POKUPATELI" Type="Model.POKUPATELI" Multiplicity="0..1" />
+          <End Role="PRODAZHI" Type="Model.PRODAZHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="POKUPATELI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODAZHI">
+              <PropertyRef Name="POKUPATEL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007247">
+          <End Role="PRODAVCY" Type="Model.PRODAVCY" Multiplicity="0..1" />
+          <End Role="PRODAZHI" Type="Model.PRODAZHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODAVCY">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODAZHI">
+              <PropertyRef Name="PRODAVEC" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007249">
+          <End Role="SPISOK_TOVAROV" Type="Model.SPISOK_TOVAROV" Multiplicity="0..1" />
+          <End Role="PRODAZHI" Type="Model.PRODAZHI" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SPISOK_TOVAROV">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PRODAZHI">
+              <PropertyRef Name="TOVAR" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007252">
+          <End Role="PRODAZHI" Type="Model.PRODAZHI" Multiplicity="1" />
+          <End Role="UNIVERMAG" Type="Model.UNIVERMAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PRODAZHI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UNIVERMAG">
+              <PropertyRef Name="PRODAZHI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SYS_C007251">
+          <End Role="TORGOVAJA_TOCHKA" Type="Model.TORGOVAJA_TOCHKA" Multiplicity="1" />
+          <End Role="UNIVERMAG" Type="Model.UNIVERMAG" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TORGOVAJA_TOCHKA">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="UNIVERMAG">
+              <PropertyRef Name="ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ISTODB_connection">
+          <EntitySetMapping Name="CENY_TOCHKI">
+            <EntityTypeMapping TypeName="Model.CENY_TOCHKI">
+              <MappingFragment StoreEntitySet="CENY_TOCHKI">
+                <ScalarProperty Name="TORGOVAJA_TOCHKA" ColumnName="TORGOVAJA_TOCHKA" />
+                <ScalarProperty Name="TOVAR" ColumnName="TOVAR" />
+                <ScalarProperty Name="CENA" ColumnName="CENA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NOMENKLTR_TCHK">
+            <EntityTypeMapping TypeName="Model.NOMENKLTR_TCHK">
+              <MappingFragment StoreEntitySet="NOMENKLTR_TCHK">
+                <ScalarProperty Name="TORGOVAJA_TOCHKA" ColumnName="TORGOVAJA_TOCHKA" />
+                <ScalarProperty Name="TOVAR" ColumnName="TOVAR" />
+                <ScalarProperty Name="KOLICHESTVO" ColumnName="KOLICHESTVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="POKUPATELI">
+            <EntityTypeMapping TypeName="Model.POKUPATELI">
+              <MappingFragment StoreEntitySet="POKUPATELI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IMJA_POKUPATELJA" ColumnName="IMJA_POKUPATELJA" />
+                <ScalarProperty Name="HARAKTERISTIKI" ColumnName="HARAKTERISTIKI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODAVCY">
+            <EntityTypeMapping TypeName="Model.PRODAVCY">
+              <MappingFragment StoreEntitySet="PRODAVCY">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IMJA_PRODAVCA" ColumnName="IMJA_PRODAVCA" />
+                <ScalarProperty Name="ZARPLATA" ColumnName="ZARPLATA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PRODAZHI">
+            <EntityTypeMapping TypeName="Model.PRODAZHI">
+              <MappingFragment StoreEntitySet="PRODAZHI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PRODAVEC" ColumnName="PRODAVEC" />
+                <ScalarProperty Name="POKUPATEL" ColumnName="POKUPATEL" />
+                <ScalarProperty Name="DATA" ColumnName="DATA" />
+                <ScalarProperty Name="TOVAR" ColumnName="TOVAR" />
+                <ScalarProperty Name="KOLICHESTVO" ColumnName="KOLICHESTVO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPISOK_TOVAROV">
+            <EntityTypeMapping TypeName="Model.SPISOK_TOVAROV">
+              <MappingFragment StoreEntitySet="SPISOK_TOVAROV">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TOVAR" ColumnName="TOVAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TORGOVAJA_TOCHKA">
+            <EntityTypeMapping TypeName="Model.TORGOVAJA_TOCHKA">
+              <MappingFragment StoreEntitySet="TORGOVAJA_TOCHKA">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="IMJA_TORG_TOCHKI" ColumnName="IMJA_TORG_TOCHKI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UNIVERMAG">
+            <EntityTypeMapping TypeName="Model.UNIVERMAG">
+              <MappingFragment StoreEntitySet="UNIVERMAG">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RAZMER_TORG_TCHK" ColumnName="RAZMER_TORG_TCHK" />
+                <ScalarProperty Name="CHISLO_PRILAVKOV" ColumnName="CHISLO_PRILAVKOV" />
+                <ScalarProperty Name="PRODAZHI" ColumnName="PRODAZHI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
